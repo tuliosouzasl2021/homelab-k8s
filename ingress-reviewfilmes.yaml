@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-simples
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: filmes.com 
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: reviewfilmes 
+            port:
+              number: 80
